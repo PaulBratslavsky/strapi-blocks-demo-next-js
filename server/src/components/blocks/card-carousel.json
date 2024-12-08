@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_blocks_card_carousels",
+  "info": {
+    "displayName": "Card Carousel"
+  },
+  "options": {},
+  "attributes": {
+    "cards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.card"
+    }
+  }
+}
