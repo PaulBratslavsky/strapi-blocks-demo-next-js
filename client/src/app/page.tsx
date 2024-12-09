@@ -30,7 +30,7 @@ const homePageQuery = qs.stringify({
 });
 
 async function loader() {
-  const authToken = process.env.STRAPI_API_TOKEN;
+  // const authToken = process.env.STRAPI_API_TOKEN;
   const BASE_URL = getStrapiURL();
   const path = "/api/home-page";
   const url = new URL(path, BASE_URL);

@@ -1,20 +1,16 @@
 import type { Block } from "@/types";
 
-import { Hero } from "@/components/blocks/hero";
-import { Heading } from "@/components/blocks/heading";
-import { CardCarousel } from "@/components/blocks/card-carousel";
-
-const BLOCK_COMPONENTS = {
-  "blocks.hero": Hero,
-  "blocks.card-carousel": CardCarousel,
-  "blocks.heading": Heading,
-} as const;
+import { Hero, Heading, CardCarousel } from "@/components/blocks";
 
 export function blockRenderer(block: Block, index: number) {
-  const Component =
-    BLOCK_COMPONENTS[block.__component as keyof typeof BLOCK_COMPONENTS];
-  if (!Component) return null;
-
-  // Type assertion to ensure props match the component
-  return <Component {...(block as any)} key={index} />;
+  switch (block.__component) {
+    case "blocks.hero":
+      return <Hero {...block} key={index} />;
+    case "blocks.card-carousel":
+      return <CardCarousel {...block} key={index} />;
+    case "blocks.heading":
+      return <Heading {...block} key={index} />;
+    default:
+      return null;
+  }
 }
